@@ -21,20 +21,5 @@
            return; 
         }
         
-        echo "Estamos listos para el cambio";
-       
-       /*
-Metodo actualizar clave
-        *         */
-        /*
-Llamada a la clase LogTransacciones para registrar la actualización
-         * 
-         *          */
-        
-        $oTransac=new LogTransaccion();
-        $oTransac->accion='U';
-        $oTransac->descripcion='USU:$nomusuario Cambio desde pagina: Actualizaclave.php';
-        $oTransac->nomtabla='Usuario';
-        $oTransac->Agregar();
-        
+        echo "Estamos listos para el cambio"
 ?>
