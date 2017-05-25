@@ -9,7 +9,7 @@
         $passConfirma = $_POST['passConfirma'];
         
         if ($passNueva!=$passConfirma){
-            echo "Las claves no son igualess";
+            echo "Las claves no son iguales";
             return; 
         }
         $oUsr=new Usuario();
@@ -21,5 +21,20 @@
            return; 
         }
         
-        echo "Estamos listos para el cambio"
+        echo "Estamos listos para el cambio";
+       
+       /*
+Metodo actualizar clave
+        *         */
+        /*
+Llamada a la clase LogTransacciones para registrar la actualización
+         * 
+         *          */
+        
+        $oTransac=new LogTransaccion();
+        $oTransac->accion='U';
+        $oTransac->descripcion='USU:$nomusuario Cambio desde pagina: Actualizaclave.php';
+        $oTransac->nomtabla='Usuario';
+        $oTransac->Agregar();
+        
 ?>
