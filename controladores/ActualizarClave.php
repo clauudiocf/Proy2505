@@ -9,7 +9,7 @@
         $passConfirma = $_POST['passConfirma'];
         
         if ($passNueva!=$passConfirma){
-            echo "Las claves no son iguales";
+            echo "Las claves no son igualess";
             return; 
         }
         $oUsr=new Usuario();
