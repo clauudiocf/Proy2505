@@ -1,26 +1,25 @@
 <?php
-    session_start();
+   include '../constantes.php';
+   include '../librerias.php';
 ?>
 <?php
-include '../lib/Conexion.php';
-include '../dato/Usuario.php';
-    if(isset($_SESSION["Usuario"])){
-        $oUsr = new Usuario();        
-        $oUsr->nombre=$_SESSION['nombre'];
-        $oUsr->clave=$_SESSION['pass'];
-        
+        $nomusuario=$_POST['nomusuario'];
         $passAntigua = $_POST['passAntigua'];
+        $passNueva = $_POST['passNueva'];
+        $passConfirma = $_POST['passConfirma'];
         
-        if(strcmp ($oUsr->nombre , $passAntigua ) == 0)
-        {
-            $passNueva = $_POST['passNueva'];
-            $passNuevaConfirma = $_POST['passNuevaConfirma'];
-            if(strcmp ($passNueva , $passNuevaConfirma ) == 0)
-            {
+        if ($passNueva!=$passConfirma){
+            echo "Las claves no son iguales";
+            return; 
+        }
+        $oUsr=new Usuario();
+        $oUsr->nombre=$nomusuario;
+        $oUsr->clave=$passAntigua;
                 
-            }
+        if(!$oUsr->VerificaUsuarioClave()){
+           echo "El usuario o clave antigua no corresponde";
+           return; 
         }
         
-    }
-
-
+        echo "Estamos listos para el cambio"
+?>

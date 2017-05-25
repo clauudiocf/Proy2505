@@ -1,5 +1,6 @@
 <?php
-    session_start();
+include("constantes.php");
+include("librerias.php");
 ?>
 <html>
     <head>
@@ -7,54 +8,10 @@
         <title></title>
     </head>
     <body>
-        <div>
-            <?php
-                if(isset($_SESSION["Usuario"])){
-            ?>
-            <div align="center"><button><a href="controladores/CerrarSesion.php">Cerrar Sesion</a></button></div>
-            <a href="formularios/FormIngresoProducto.php">Ingresar Producto</a><br>
-            <a href="formularios/FormActualizarClave.php">Cambiar Clave</a>
-            <?php
-                }
-            ?>
-        </div>
+        <a href="formularios/formcambiarclave.php">Cambiar clave de usuario</a>
+        <a href="formularios/formagregarproducto.php"> Agregar Producto</a>
         <?php
-            if(!isset($_SESSION["Usuario"])) {
+        echo PATH;
         ?>
-        <form method="post" action="controladores/IniciarSesion.php">
-            <table>
-                <tr>
-                    <td>
-                        NOMBRE
-                    </td>
-                    <td>
-                        <input type="text" name="nombre">
-                        
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        CONTRASEÑA
-                    </td>
-                    <td>
-                        <input type="password" name="pass">                        
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" value="Verificar">
-                    </td>
-                </tr>
-                    
-                </tr
-            </table>
-            
-        </form>
-                
-        <?php
-            }
-        ?>
-        
     </body>
 </html>
